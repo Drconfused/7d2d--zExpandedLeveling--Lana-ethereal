@@ -1,0 +1,214 @@
+<expandedprogression>
+	<!-- For the few perks that have cvar based mods. -->
+	<append xpath="/buffs/buff[@name='buffPerkAbilityUpdate']/effect_group">
+		<!-- Will be adding comments in the append. -->
+		<!-- Intrinsic Immunity -->
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$illnessChance" operation="set" value="8">
+			<requirement name="ProgressionLevel" progression_name="perkIntrinsicImmunity" operation="Equals" value="6"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$illnessChance" operation="set" value="6">
+			<requirement name="ProgressionLevel" progression_name="perkIntrinsicImmunity" operation="Equals" value="7"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$illnessChance" operation="set" value="4">
+			<requirement name="ProgressionLevel" progression_name="perkIntrinsicImmunity" operation="Equals" value="8"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$illnessChance" operation="set" value="2">
+			<requirement name="ProgressionLevel" progression_name="perkIntrinsicImmunity" operation="Equals" value="9"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$illnessChance" operation="set" value="0">
+			<requirement name="ProgressionLevel" progression_name="perkIntrinsicImmunity" operation="Equals" value="10"/>
+		</triggered_effect>
+		
+		
+		<!-- Olympic Swimmer -->
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="66">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="6"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="72">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="7"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="78">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="8"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="84">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="9"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="90">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="10"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="96">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="11"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="102">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="12"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="108">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="13"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="114">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="14"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="120">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="15"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="126">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="16"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="132">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="17"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="138">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="18"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="144">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="19"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$DrowningTimerMax" operation="set" value="150">
+			<requirement name="ProgressionLevel" progression_name="perkOlympicSwimmer" operation="Equals" value="20"/>
+		</triggered_effect>
+		
+		
+		<!-- Physician -->
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="4.5">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="6"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="5">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="7"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="5.5">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="8"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="6">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="9"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="6.5">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="10"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="7">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="11"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="7.5">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="12"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="8">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="13"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="8.5">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="14"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="9">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="15"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="9.5">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="16"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="10">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="17"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="10.5">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="18"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="11">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="19"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="healthPerkIncrease" operation="set" value="12">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="20"/>
+		</triggered_effect>
+		
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="2.25">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="6"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="2.5">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="7"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="2.75">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="8"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="3">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="9"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="4">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="10"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="4.25">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="11"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="4.5">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="12"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="4.75">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="13"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="5">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="14"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="5.25">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="15"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="5.5">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="16"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="5.75">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="17"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="6">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="18"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="6.25">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="19"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="medicPerkIncrease" operation="set" value="7">
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="20"/>
+		</triggered_effect>
+		
+		
+		<!-- Parkour -->
+		<triggered_effect value=".0890" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="6" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="1.052" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="7" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="1.214" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="8" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="1.376" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="9" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="1.538" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="10" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="1.700" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="11" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="1.862" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="12" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="2.024" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="13" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="2.186" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="14" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="2.348" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="15" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="2.510" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="16" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="2.672" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="17" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="2.834" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="18" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="3.000" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="19" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+		<triggered_effect value="3.162" action="ModifyCVar" trigger="onSelfBuffStack" operation="set" cvar="$parkourBonus">
+			<requirement name="ProgressionLevel" value="20" operation="Equals" progression_name="perkParkour"/>
+		</triggered_effect>
+	</append>
+	
+	
+</expandedprogression>

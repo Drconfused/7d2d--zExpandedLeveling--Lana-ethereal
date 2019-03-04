@@ -1,0 +1,635 @@
+<?xml version="1.0"?>
+<expandedprogression>
+	<!-- Broad setting.  Set all Attributes to max 20, and level 1 req. -->
+	<!-- Weird syntax courtesy of TFP. -->
+	<!-- Faster leveling and more points per level. -->
+	<setattribute xpath="/progression/level" name="exp_to_level">1</setattribute>
+	<setattribute xpath="/progression/level" name="experience_multiplier">1.01</setattribute>
+	<setattribute xpath="/progression/level" name="skill_points_per_level">300</setattribute>
+	<set xpath="/progression/attributes/@max_level">20</set>
+	<set xpath="/progression/attributes/@cost_multiplier_per_level">1</set>
+	<set xpath="/progression/attributes/attribute/level_requirements/requirement/@desc_key">reqGenericPoints01</set>
+	<append xpath="/progression/attributes/attribute">
+		<level_requirements level="11"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="12"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="13"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="14"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="15"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="16"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="17"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="18"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="19"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="20"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+	</append>
+	
+	
+	<!-- Perception -->
+	<append xpath="/progression/attributes/attribute[@name='attPerception']/effect_group[1]">
+			<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value=".02,.01" level="11,20"/>
+			<passive_effect name="SpreadMultiplierCrouching" operation="perc_add" value=".02,.01" level="11,20"/>
+			<passive_effect name="SpreadMultiplierWalking" operation="perc_add" value=".02,.01" level="11,20"/>
+			<passive_effect name="SpreadMultiplierRunning" operation="perc_add" value=".02,.01" level="11,20"/>
+			<passive_effect name="SpreadMultiplierHip" operation="perc_add" value=".02,.01" level="11,20"/>
+			<passive_effect name="SpreadMultiplierIdle" operation="perc_add" value=".02,.01" level="11,20"/>
+	</append>
+	
+	<append xpath="/progression/attributes/attribute[@name='attPerception']/effect_group[2]">
+			<passive_effect name="EntityDamage" operation="perc_add" value="0.75,1.00" level="21,30"/>
+	</append>
+
+	
+	<!-- Strength -->
+	<append xpath="/progression/attributes/attribute[@name='attStrength']/effect_group">
+			<passive_effect name="EntityDamage" operation="perc_add" value="0.75,1.00" level="21,30"/>
+			<passive_effect name="BlockDamage" operation="perc_add" value="0.75,1.00" level="21,30"/>
+	</append>
+	
+	
+	<!-- Fortitude -->
+	<append xpath="/progression/attributes/attribute[@name='attFortitude']/effect_group">		
+			<passive_effect name="HealthMax" operation="base_set" value="255,300" level="21,30"/>
+			<passive_effect name="HealthLossMaxMult" operations="perc_add" value="0.41,0.70" level="21,30"/>
+			<passive_effect name="WaterMax" operation="base_set" value="255,300" level="21,30"/>
+	</append>
+	
+	
+	<!-- Agility -->
+	<append xpath="/progression/attributes/attribute[@name='attAgility']/effect_group">
+			<passive_effect name="StaminaMax" operation="base_set" value="255,300" level="21,30"/>
+	</append>
+	
+	
+	<!-- Intellect -->
+	<set xpath="/progression/attributes/attribute[@name='attIntellect']/effect_group">
+			<!-- Copying the main effects since I don't know how to replace the one line they have for 11,20
+				 that is causing some issues.  -->
+			<passive_effect name="CraftingTier" operation="base_add" level="2,10" value="1,5"/>
+			<passive_effect name="CraftingTier" operation="base_add" level="11,20" value="5,5"/>
+
+			<passive_effect name="CraftingTime" operation="perc_subtract" level="2,6" value=".05,.45"/>
+			<passive_effect name="CraftingTime" operation="perc_subtract" level="7,10" value=".5,.65"/>
+			
+			<!-- 11-30 -->
+			<passive_effect name="CraftingTime" operation="perc_subtract" level="11,20" value="0.70,0.85"/>
+			<passive_effect name="CraftingTime" operation="perc_subtract" level="21,30" value="0.85,1.00"/>
+
+			<effect_description level="1" desc_key="attIntellectRank1Desc"/>
+			<effect_description level="2" desc_key="attIntellectRank2Desc"/>
+			<effect_description level="3" desc_key="attIntellectRank3Desc"/>
+			<effect_description level="4" desc_key="attIntellectRank4Desc"/>
+			<effect_description level="5" desc_key="attIntellectRank5Desc"/>
+			<effect_description level="6" desc_key="attIntellectRank6Desc"/>
+			<effect_description level="7" desc_key="attIntellectRank7Desc"/>
+			<effect_description level="8" desc_key="attIntellectRank8Desc"/>
+			<effect_description level="9" desc_key="attIntellectRank9Desc"/>
+			<effect_description level="10" desc_key="attIntellectRank10Desc"/>
+	</set>
+	
+	
+<!-- Perks -->
+	<!-- No idea if these will work right.  Attributes I kind of fell into working.
+		 wish us luck. -->
+	<!-- Broad setting.  Set all Perks to max 10, and level 1 req. -->
+	<set xpath="/progression/perks/perk/level_requirements/requirement/@value">1</set>
+	<set xpath="/progression/perks/perk/level_requirements/requirement/@desc_key">reqGenericPoints01</set>
+	<remove xpath="/progression/perks/perk/level_requirements/requirement[@name='PlayerLevel']"/>
+	<append xpath="/progression/perks/perk">
+		<level_requirements level="6"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="7"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="8"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="9"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+		<level_requirements level="10"><requirement name="PlayerLevel" target="self" operation="GTE" value="1" desc_key="reqGenericPoints01"/></level_requirements>
+	</append>
+	
+	
+<!-- I know, weird unindenting inside of an indented block.
+	 But I'll be labeling Perk Category and then perk for easy searching. -->
+	 
+	 
+<!-- Perception Perks -->
+	<!-- Gunslinger -->
+	<set xpath="/progression/perks/perk[@name='perkGunslinger']/@max_level">10</set>
+	<append xpath="/progression/perks/perk[@name='perkGunslinger']/effect_group">
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="0.3,0.5" level="6,10"/>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="0.55,0.75" level="11,20"/>
+		<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.35,0.60" level="6,10"/>
+		<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.65,0.9" level="11,20"/>
+	</append>
+
+	
+	<!-- Shotgun Messiah -->
+	<setattribute xpath="/progression/perks/perk[@name='perkShotgunMessiah']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkShotgunMessiah']/effect_group">
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="0.3,0.5" level="6,10"/>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="0.55,0.75" level="11,20"/>
+		<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.35,0.60" level="6,10"/>
+		<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.65,0.9" level="11,20"/>
+	</append>
+	
+	
+	<!-- Automatic Weapons -->
+	<setattribute xpath="/progression/perks/perk[@name='perkAutomaticWeapons']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkAutomaticWeapons']/effect_group">
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="0.3,0.5" level="6,10"/>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="0.55,0.75" level="11,20"/>
+		<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.35,0.60" level="6,10"/>
+		<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.65,0.9" level="11,20"/>
+		<passive_effect name="KickDegreesVertical" operation="perc_add" value="-.30,-.50" level="6,10"/>
+		<passive_effect name="KickDegreesVertical" operation="perc_add" value="-.55,-.75" level="11,20"/>
+		<passive_effect name="KickDegreesHorizontal" operation="perc_add" value="-.30,-.50" level="6,10"/>
+		<passive_effect name="KickDegreesHorizontal" operation="perc_add" value="-.55,-.75" level="11,20"/>
+	</append>
+	
+	
+	<!-- Dead Eye -->
+	<setattribute xpath="/progression/perks/perk[@name='perkDeadEye']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkDeadEye']/effect_group[2]">
+			<passive_effect name="WeaponHandling" operation="perc_add" value="0.6,1.0" level="6,10"/>
+			<passive_effect name="WeaponHandling" operation="perc_add" value="1.1,2.0" level="11,20"/>
+			<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.35,0.5" level="6,10"/>
+			<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.55,0.75" level="11,20"/>
+	</append>
+	
+	
+	<!-- Archery -->
+	<!-- For some reason it's displaying bonuses twice.  I'm not sure if this will negatively impact things. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkArchery']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkArchery']/effect_group[1]">
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value=".55,1.0" level="6,10"/>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value=".1.1,2.0" level="11,20"/>
+	</append>
+	
+	<append xpath="/progression/perks/perk[@name='perkArchery']/effect_group[2]">
+		<passive_effect name="WeaponHandling" operation="perc_add" value="0.6,1.0" level="6,10"/>
+		<passive_effect name="WeaponHandling" operation="perc_add" value="1.1,2.0" level="11,20"/>
+		<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.35,0.5" level="6,10"/>
+		<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.55,0.75" level="11,20"/>
+	</append>
+	
+	
+	<!-- Explosive Weapons -->
+	<setattribute xpath="/progression/perks/perk[@name='perkExplosiveWeapons']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkExplosiveWeapons']/effect_group">
+		<passive_effect name="WeaponHandling" operation="perc_add" value="0.6,1.0" level="6,10"/>
+		<passive_effect name="WeaponHandling" operation="perc_add" value="1.1,2.0" level="11,20"/>
+		<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.4,0.85" level="6,10"/>
+		<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.9,1.5" level="11,20"/>
+		<passive_effect name="DamageFalloffRange" operation="perc_add" value="0.6,1.0" level="6,10"/>
+		<passive_effect name="DamageFalloffRange" operation="perc_add" value="1.1,2.0" level="11,20"/>
+		<passive_effect name="MaxRange" operation="perc_add" value="0.3,0.5" level="6,10"/>
+		<passive_effect name="MaxRange" operation="perc_add" value="0.55,1.25" level="11,20"/>
+		<passive_effect name="ProjectileVelocity" operation="perc_add" value="0.3,0.4" level="6,10"/>
+		<passive_effect name="ProjectileVelocity" operation="perc_add" value="0.41,0.75" level="11,20"/>
+	</append>
+
+	
+	<!-- Boom! Headshot! -->
+	<setattribute xpath="/progression/perks/perk[@name='perkHeadshot']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkHeadshot']/effect_group">
+		<passive_effect name="DamageModifier" operation="perc_add" value="1.2,2.0" level="6,10"/>
+		<passive_effect name="DamageModifier" operation="perc_add" value="2.2,4.0" level="11,20"/>
+		<passive_effect name="DismemberChance" operation="base_add" value="0.2,0.5" level="6,10"/>
+		
+		<!-- Following the math this would give 100% dismember chance at 20, so, it's getting 100% at 20. -->
+		<passive_effect name="DismemberChance" operation="base_add" value="0.55,1.0" level="11,20"/>
+	</append>
+	
+	
+	<!-- Run and Gun -->
+	<setattribute xpath="/progression/perks/perk[@name='perkRunAndGun']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkRunAndGun']/effect_group">
+		<passive_effect name="SpreadMultiplierHip" operation="perc_add" value="-0.30,-0.50" level="6,10"/>
+		<passive_effect name="SpreadMultiplierHip" operation="perc_add" value="-0.55,-1" level="11,20"/>
+	</append>
+	
+	
+	<!-- Lucky Looter -->
+	<setattribute xpath="/progression/perks/perk[@name='perkLuckyLooter']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkLuckyLooter']/effect_group">
+		<!-- 1m Treasure Radius at 7. -->
+		<passive_effect name="TreasureRadius" operation="base_subtract" value="7" level="6"/>
+		<passive_effect name="TreasureRadius" operation="base_subtract" value="8" level="7,20"/>
+		<passive_effect name="LootGamestage" operation="base_add" value="300,500" level="6,10"/>
+		<passive_effect name="LootGamestage" operation="base_add" value="550,1000" level="11,20"/>
+		
+		<!-- Following the math, instant looting at level 6, guess it's a minimum of 1s? -->
+		<passive_effect name="ScavengingTime" operation="perc_subtract" value="1" level="6,20"/>
+	</append>
+	
+	
+	<!-- Salvage Operations -->
+	<setattribute xpath="/progression/perks/perk[@name='perkSalvageOperations']" name="max_level">10</setattribute>
+	<set xpath="/progression/perks/perk[@name='perkSalvageOperations']/effect_group[1]">
+		<requirement name="HoldingItemHasTags" tags="perkSalvageOperations"/>
+		<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" level="1,5"/>
+		<passive_effect name="BlockDamage" operation="perc_add" value=".6,1" level="6,10"/>
+		<passive_effect name="BlockDamage" operation="perc_add" value="1.1,2" level="11,20"/>
+		<passive_effect name="HarvestCount" operation="perc_add" value=".2,1" level="1,5" tags="salvageHarvest"/>
+		<passive_effect name="HarvestCount" operation="perc_add" value="1.2,2" level="6,10" tags="salvageHarvest"/>
+		<passive_effect name="HarvestCount" operation="perc_add" value="2.2,4" level="11,20" tags="salvageHarvest"/>
+	</set>
+
+	
+<!-- Strength Perks -->
+<!-- I just noticed that TFP don't really separate the perks in their progression.xml,
+	 but I'm too OCD about things to change now. -->
+	 <!-- Sexual Tyrannosaurus -->
+	 <!-- So I'm adding it like TFP has in the base one, but it looks really weird in game. -->
+	 <setattribute xpath="/progression/perks/perk[@name='perkSexualTrex']" name="max_level">10</setattribute>
+	 <append xpath="/progression/perks/perk[@name='perkSexualTrex']/effect_group">
+		<passive_effect name="StaminaLoss" operation="perc_add" value="-0.3,-0.5" level="6,10"/>
+		<passive_effect name="StaminaLoss" operation="perc_add" value="-0.55,-1.0" level="11,20"/>
+		
+		<!-- Like at level 5, I'm giving players more stamina for kills.  This is likely overkill. -->
+		<triggered_effect trigger="onSelfKilledOther" action="ModifyStats" stat="Stamina" operation="add" value="50">
+			<requirement name="ProgressionLevel" progression_name="perkSexualTrex" operation="GTE" value="10"/>
+		</triggered_effect>
+	</append>
+	
+	
+	<!-- Pack Mule -->
+	<!-- Nothing to do here. -->
+	
+	
+	<!-- Flurry of Blows -->
+	<setattribute xpath="/progression/perks/perk[@name='perkFlurryOfBlows']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkFlurryOfBlows']/effect_group">
+		<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.30,0.50" level="6,10"/>
+		<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.55,1.0" level="11,20"/>
+	</append>
+	
+	
+	<!-- Deep Cuts -->
+	<!-- This is a mess of XML in the original.  Gonna try to add while not fucking everything sideways. -->
+	<!-- Side note:  Things are displayed twice because the UI doesn't differentiate between Chainsaw and not. -->
+	<!-- Yes, I know I can use one HTML comment for multiple lines.  I am adding these spur of the moment. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkDeepCuts']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkDeepCuts']/effect_group[1]">
+		<passive_effect name="EntityDamage" operation="perc_add" value="2.4,4.0" level="6,10"/>
+		<passive_effect name="EntityDamage" operation="perc_add" value="4.4,8.0" level="11,20"/>
+	</append>
+	
+		<!-- Level 7 guarantees bleeding AoE, following math. -->
+	<append xpath="/progression/perks/perk[@name='perkDeepCuts']/effect_group[2]">
+		<triggered_effect trigger="onSelfSecondaryActionRayHit" action="AddBuff" target="otherAOE" range="1.4" target_tags="zombie,animal" buff="buffInjuryBleeding">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="6"/>
+			<requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="80"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfSecondaryActionRayHit" action="AddBuff" target="otherAOE" range="1.5" target_tags="zombie,animal" buff="buffInjuryBleeding">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="7"/>
+		</triggered_effect>
+
+		<!-- Following TFP math, dismember chance caps early. -->
+		<!-- The skill desc will look weird but it works. -->
+		<passive_effect name="DismemberChance" operation="base_set" value=".3" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="6"/>
+		</passive_effect>	
+		<passive_effect name="DismemberChance" operation="base_set" value=".4" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="7"/>
+		</passive_effect>
+		<passive_effect name="DismemberChance" operation="base_set" value=".5" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="8"/>
+		</passive_effect>	
+		<passive_effect name="DismemberChance" operation="base_set" value=".6" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="9"/>
+		</passive_effect>
+		<passive_effect name="DismemberChance" operation="base_set" value=".7" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="10"/>
+		</passive_effect>	
+		<passive_effect name="DismemberChance" operation="base_set" value=".8" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="11"/>
+		</passive_effect>
+		<passive_effect name="DismemberChance" operation="base_set" value=".9" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="12"/>
+		</passive_effect>
+		<passive_effect name="DismemberChance" operation="base_set" value="1.0" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="13"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/progression/perks/perk[@name='perkDeepCuts']/effect_group[3]">
+		<!-- I'd use "OR" (the pipe character) but this XPath stuff doesn't like it, even if it's in it. -->
+		<!-- Following TFP math, dismember chance caps early. -->
+		<!-- The skill desc will look weird but it works. -->
+		<passive_effect name="DismemberChance" operation="base_set" value=".3" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="6"/>
+		</passive_effect>	
+		<passive_effect name="DismemberChance" operation="base_set" value=".4" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="7"/>
+		</passive_effect>
+		<passive_effect name="DismemberChance" operation="base_set" value=".5" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="8"/>
+		</passive_effect>	
+		<passive_effect name="DismemberChance" operation="base_set" value=".6" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="9"/>
+		</passive_effect>
+		<passive_effect name="DismemberChance" operation="base_set" value=".7" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="10"/>
+		</passive_effect>	
+		<passive_effect name="DismemberChance" operation="base_set" value=".8" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="11"/>
+		</passive_effect>
+		<passive_effect name="DismemberChance" operation="base_set" value=".9" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="12"/>
+		</passive_effect>
+		<passive_effect name="DismemberChance" operation="base_set" value="1.0" tags="secondary">
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="13"/>
+		</passive_effect>
+	</append>
+	
+	
+	<!-- Stay Down! -->
+	<setattribute xpath="/progression/perks/perk[@name='perkStayDown']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkStayDown']/effect_group[1]">
+		<passive_effect name="EntityDamage" operation="perc_add" value="2.4,4.0" level="6,10" tags="secondary"/>
+		<passive_effect name="EntityDamage" operation="perc_add" value="4.4,8.0" level="11,20" tags="secondary"/>
+	</append>
+	
+	
+	<!-- Heavy Metal -->
+	<setattribute xpath="/progression/perks/perk[@name='perkHeavyMetal']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkHeavyMetal']/effect_group[1]">
+		<passive_effect name="EntityDamage" operation="perc_add" value="2.4,4.0" level="6,10" tags="secondary"/>
+		<passive_effect name="EntityDamage" operation="perc_add" value="4.4,8.0" level="11,20" tags="secondary"/>
+	</append>
+	
+	<append xpath="/progression/perks/perk[@name='perkHeavyMetal']/effect_group[2]">
+		<triggered_effect trigger="onSelfSecondaryActionRayHit" action="AddBuff" target="otherAOE" range="1.5" target_tags="zombie,animal" buff="buffInjuryKnockdown1">
+			<requirement name="ProgressionLevel" progression_name="perkHeavyMetal" operation="Equals" value="6"/>
+			<requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="80"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfSecondaryActionRayHit" action="AddBuff" target="otherAOE" range="1.6" target_tags="zombie,animal" buff="buffInjuryKnockdown1">
+			<requirement name="ProgressionLevel" progression_name="perkHeavyMetal" operation="Equals" value="7"/>
+		</triggered_effect>
+	</append>
+
+
+	<!-- Skull Crusher -->
+	<setattribute xpath="/progression/perks/perk[@name='perkSkullCrusher']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkSkullCrusher']/effect_group">
+		<passive_effect name="DamageModifier" operation="perc_add" value="1.2,2" level="6,10" tags="head"/>
+		<passive_effect name="DamageModifier" operation="perc_add" value="2.2,4" level="11,20" tags="head"/>
+		<passive_effect name="DismemberChance" operation="base_add" value="0.20,0.45" level="6,10" tags="head"/>
+		<passive_effect name="DismemberChance" operation="base_add" value="0.50,0.95" level="11,20" tags="head"/>
+	</append>
+		
+		
+	<!-- Miner 69er -->
+	<!-- Not sure if working.  Game kind of doesn't tell me. Not working at level 10. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkMiner69r']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkMiner69r']/effect_group">
+		<passive_effect name="BlockDamage" operation="perc_add" value="1.2,2" level="6,10" />
+		<passive_effect name="BlockDamage" operation="perc_add" value="2.2,4" level="11,20" />
+	</append>
+		
+		
+	<!-- Mother Lode -->
+	<!-- Ditto.  (Ditto?  Ditto you provincial putz?!) -->
+	<setattribute xpath="/progression/perks/perk[@name='perkMotherLode']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkMotherLode']/effect_group">
+			<passive_effect name="HarvestCount" operation="perc_add" value="1.2,2" level="6,10" tags="oreWoodHarvest"/>
+			<passive_effect name="HarvestCount" operation="perc_add" value="2.2,4" level="11,20" tags="oreWoodHarvest"/>
+	</append>
+	
+
+<!-- Fortitude Perks -->
+	<!-- Heavy Armor -->
+	<setattribute xpath="/progression/perks/perk[@name='perkHeavyArmor']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkHeavyArmor']/effect_group">
+		<passive_effect name="PhysicalDamageResist" operation="perc_add" value="0.6,1.0" level="6,10" tags="heavyarmor"/>
+		<passive_effect name="PhysicalDamageResist" operation="perc_add" value="1.1,2.0" level="11,20" tags="heavyarmor"/>
+		<passive_effect name="DegradationMax" operation="perc_add" value="0.6,1.0" level="6,10" tags="heavyarmor"/>
+	</append>
+	
+	
+	<!-- The Huntsman -->
+	<setattribute xpath="/progression/perks/perk[@name='perkTheHuntsman']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkTheHuntsman']/effect_group">
+		<passive_effect name="HarvestCount" operation="perc_add" value="1.2,2" level="6,10" tags="butcherHarvest"/>
+		<passive_effect name="HarvestCount" operation="perc_add" value="2.2,4" level="11,20" tags="butcherHarvest"/>
+		
+		<!-- Sol's Rabbit Traps Fix -->
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" value="1" level="6,20" tags="Herbivore_Bait,Unbaited_Primitive_Rabbit_Trap,Baited_Primitive_Rabbit_Trap"/>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" value="1" level="6,20" tags="Unbaited_Reusable_Rabbit_Trap,Baited_Reusable_Rabbit_Trap"/>
+	</append>
+	
+	<!-- Intrinsic Immunity -->
+	<setattribute xpath="/progression/perks/perk[@name='perkIntrinsicImmunity']" name="max_level">10</setattribute>
+	<!-- cvar based, will revisit. -->
+	
+	
+	
+	<!-- Well Insulated -->
+	<setattribute xpath="/progression/perks/perk[@name='perkWellInsulated']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkWellInsulated']/effect_group">
+		<passive_effect name="HypothermalResist" operation="base_add" value="30,50" level="6,10"/>
+		<passive_effect name="HypothermalResist" operation="base_add" value="55,100" level="11,20"/>
+		<passive_effect name="HyperthermalResist" operation="base_add" value="30,50" level="6,10"/>
+		<passive_effect name="HyperthermalResist" operation="base_add" value="55,100" level="11,20"/>
+	</append>
+
+	
+	<!-- Living Off the Land -->
+	<!-- Made my own edit here.  Increased wild gathering over level 5. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkLivingOffTheLand']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group">
+		<passive_effect name="HarvestCount" operation="perc_add" value="10,16" level="6,10" tags="cropHarvest"/>
+		<passive_effect name="HarvestCount" operation="perc_add" value="18,36" level="11,20" tags="cropHarvest"/>
+		<passive_effect name="HarvestCount" operation="perc_add" value="2,8" level="6,10" tags="wildCropsHarvest"/>
+		<passive_effect name="HarvestCount" operation="perc_add" value="10,16" level="1,5" tags="wildCropsHarvest"/>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" value="1" level="6,20" tags="plantedAloe1,plantedBlueberry1,plantedChrysanthemum1,plantedCoffee1,plantedCorn1,plantedCotton1,plantedGoldenrod1,plantedMushroom1,plantedPotato1,plantedYucca1,plantedHop1"/>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" value="1" level="6,20" tags="plantedGraceCorn1"/>
+		
+		<!-- Sol's Coops Fix. -->
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" value="1" level="6,20" tags="Chicken_Feed,Chicken_Nest,Chicken_Cage_Needs_Nest"/>
+	</append>
+	
+	
+	<!-- Pain Tolerance -->
+	<!-- Let's hope nobody wants to go to 20, otherwise the math will need tweaking. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkPainTolerance']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkPainTolerance']/effect_group">
+		<passive_effect name="HealthLoss" operation="perc_subtract" value=".30,.50" level="6,10"/>
+		<passive_effect name="HealthLoss" operation="perc_subtract" value=".55,1.0" level="11,20"/>
+		<passive_effect name="BuffResistance" operation="base_add" value="1,1" level="6,20" tags="buffInjuryStunned1,buffInjuryStunned2"/>
+	</append>
+	
+	
+	<!-- Healing Factor -->
+	<!-- Wolverine level of regen at 10? -->
+	<setattribute xpath="/progression/perks/perk[@name='perkHealingFactor']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkHealingFactor']/effect_group[1]">
+		<passive_effect name="HealthChangeOT" operation="base_set" value="0.31" level="6"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="0.37" level="7"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="0.43" level="8"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="0.49" level="9"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="0.54" level="10"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="0.60" level="11"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="0.66" level="12"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="0.72" level="13"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="0.78" level="14"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="0.84" level="15"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="0.90" level="16"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="0.96" level="17"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="1.02" level="18"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="1.08" level="19"/>
+		<passive_effect name="HealthChangeOT" operation="base_set" value="1.14" level="20"/>
+	</append>
+	<append xpath="/progression/perks/perk[@name='perkHealingFactor']/effect_group[2]">
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.08" level="6"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.11" level="7"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.14" level="8"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.17" level="9"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.20" level="10"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.23" level="11"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.26" level="12"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.29" level="13"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.32" level="14"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.35" level="15"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.38" level="16"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.41" level="17"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.44" level="18"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.47" level="19"/>
+		<passive_effect name="HealthMaxModifierOT" operation="base_set" value="0.50" level="20"/>
+	</append>
+	
+	
+	<!-- Slow Metabolism -->
+	<!-- At level 10 your character doesn't need to eat or drink, probably should fix that. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkSlowMetabolism']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkSlowMetabolism']/effect_group">
+		<passive_effect name="StaminaLossMaxMult" operation="perc_subtract" value="0.6,1.0" level="6,10"/>
+		<passive_effect name="WaterLossPerHealthPointGained" operation="perc_subtract" value="0.6,1.0" level="6,10"/>
+		<passive_effect name="WaterLossPerStaminaPointGained" operation="perc_subtract" value="0.6,1.0" level="6,10"/>
+	</append>
+	
+	
+	<!-- Self Medicated -->
+	<!-- This perk doesn't actually do anything minus change water usage. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkSelfMedicated']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkSelfMedicated']/effect_group">
+		<passive_effect name="WaterChangeOT" operation="perc_subtract" value="1.0" level="6,10" tags="drug"/>
+	</append>
+	
+	
+<!-- Agility Perks -->
+	<!-- Rule One: Cardio -->
+	<!-- Adding in a mobility change to level 10 to make you faster.  Will see how it works out. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkRuleOneCardio']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkRuleOneCardio']/effect_group">
+		<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.4,0.6" level="6,10" tags="running"/>
+		<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.7,1.1" level="11,20" tags="running"/>
+		<passive_effect name="Mobility" operation="perc_add" value="0.5" level="10"/>
+	</append>
+	
+	
+	<!-- Light Armor -->
+	<setattribute xpath="/progression/perks/perk[@name='perkLightArmor']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkLightArmor']/effect_group">
+		<passive_effect name="PhysicalDamageResist" operation="perc_add" value="0.6,1.0" level="6,10" tags="lightarmor"/>
+		<passive_effect name="PhysicalDamageResist" operation="perc_add" value="1.1,2.0" level="11,20" tags="lightarmor"/>
+		<passive_effect name="DegradationMax" operation="perc_add" value="1.2,2.0" level="6,10" tags="lightarmor"/>
+		<passive_effect name="DegradationMax" operation="perc_add" value="2.20,4.0" level="11,20" tags="lightarmor"/>
+	</append>
+	
+	
+	<!-- Charging Bull -->
+	<!-- Bull in a China Shop would have been better, but maybe too wordy. :p -->
+	<setattribute xpath="/progression/perks/perk[@name='perkChargingBull']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkChargingBull']/effect_group">
+		<passive_effect name="EntityDamage" operation="perc_add" value="0.6,0.8" level="6,10" tags="melee,running"/>
+		<passive_effect name="EntityDamage" operation="perc_add" value="1.0,1.4" level="11,20" tags="melee,running"/>
+		<passive_effect name="HealthLoss" operation="perc_subtract" value="0.30,0.50" level="6,10" tags="running"/>
+		<passive_effect name="HealthLoss" operation="perc_subtract" value="0.55,1.0" level="11,20" tags="running"/>
+	</append>
+	
+	
+	<!-- Parkour -->
+	<!-- Harcore Parkour!  Though it probably should be called 'Free Running' /s. -->
+	<!-- Adding an even higher jump at level 10.  May be problematic but might make
+		 stealth jumping better. Additionally no stamina usage at level 10
+		 may need to be adjusted.  -->
+	<setattribute xpath="/progression/perks/perk[@name='perkParkour']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkParkour']/effect_group">
+		<passive_effect name="JumpStrength" operation="perc_add" value="1.5" level="10"/>
+		<passive_effect name="StaminaLoss" operation="perc_add" value="-0.6,-1.0" level="6,10"/>
+	</append>
+	
+	
+	<!-- Olympic Swimmer -->
+	<!-- Per TFP "BreathHoldDuration" doesn't actually work, but I'm adding it here for
+	     forward compatibility. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkOlympicSwimmer']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkOlympicSwimmer']/effect_group">
+		<passive_effect name="Mobility" operation="perc_add" value="0.4,0.6" level="6,10" tags="swimming"/>
+		<passive_effect name="Mobility" operation="perc_add" value="0.7,1.1" level="11,20" tags="swimming"/>
+		<passive_effect name="BreathHoldDuration" operation="perc_add" value="1.2,2" level="6,10"/>
+		<passive_effect name="BreathHoldDuration" operation="perc_add" value="2.2,4" level="11,20"/>
+	</append>
+	
+	
+	<!-- Ninja Movement -->
+	<!-- No need to boost this higher than 1.0, otherwise crouching would be faster than
+		 walking.  It'd be wavedashing (sorta) all over again. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkNinjaMovement']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkNinjaMovement']/effect_group">
+		<passive_effect name="CrouchSpeed" operation="perc_add" value="0.6,1.0" level="6,10"/>
+	</append>
+	
+	
+	<!-- Hidden Strike -->
+	<!-- Per TFP this is done per level for UI purposes.  Will do that here. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkHiddenStrike']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkHiddenStrike']/effect_group">
+		<passive_effect name="DamageBonus" operation="base_set" value="4.5,5,5.5,6,7" level="6,7,8,9,10"/>
+		<passive_effect name="DamageBonus" operation="base_set" value="7.5,7.5,8,8.5,9,9.5,10,10.5,11,12" level="11,12,13,14,15,16,17,18,19,20"/>
+		<passive_effect name="EntityDamage" operation="perc_add" value="3.5,4,4.5,5,5.5" level="6,7,8,9,10"/>
+		<passive_effect name="EntityDamage" operation="perc_add" value="6,6.5,7,7.5,8,8.5,9,9.5,10,11" level="11,12,13,14,15,16,17,18,19,20"/>
+	</append>
+	
+	
+	<!-- From The Shadows -->
+	<!-- Looking at the XML this and Hidden Strike were once the same skill.
+		 Wonder why that changed. At level 10 you are constantly in the shadows
+		 tweak this value if you think that's unfair.  Same with noise.  -->
+	<setattribute xpath="/progression/perks/perk[@name='perkFromTheShadows']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkFromTheShadows']/effect_group">
+		<passive_effect name="LightMultiplier" operation="perc_subtract" value="0.8,1.0" level="6,10"/>
+		<passive_effect name="NoiseMultiplier" operation="perc_subtract" value="0.75,1.0" level="6,10"/>
+	</append>
+	
+	
+<!-- Intellect Perks -->
+	<!-- Better Barter -->
+	<!-- I was curious how this worked.  Looks like it increases the Game Stage
+		 for the trader by a massive amount. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkBetterBarter']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkBetterBarter']/effect_group">
+		<!-- <passive_effect name="Bartering" operation="base_add" level="6,7,8,9,10" value="0.6,0.7,0.8,0.9,1.0"/>
+		<passive_effect name="Bartering" operation="base_add" level="11,20" value="1.1,2.0"/> -->
+		<passive_effect name="SecretStash" operation="base_add" level="6,10" value="6000,10000"/>
+		<passive_effect name="SecretStash" operation="base_add" level="11,20" value="11000,20000"/>
+	</append>
+	
+	
+	<!-- Daring Adventurer -->
+	<!-- Will be experimenting with this, as adding quest rewards could break things
+		 with the trader/quest board (mod).  So take this with a grain of salt. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkDaringAdventurer']" name="max_level">10</setattribute>
+	<append xpath="/progression/perks/perk[@name='perkDaringAdventurer']/effect_group">
+		<passive_effect name="QuestRewardOptionCount" operation="base_add" level="6,7,8,9,10" value="4,4,5,5,5"/>
+		<passive_effect name="QuestBonusItemReward" operation="perc_add" level="6,7,8,9" value="0.25,0.5,.75,1.0"/>
+		<passive_effect name="QuestRewardChoiceCount" operation="base_add" level="10" value="2"/>
+	</append>
+	
+	
+	<!-- Charismatic Nature -->
+	<!-- I'm giving this a range boost and then the rest is cvar stuff, so I dunno
+		 what else I can really do. -->
+	<setattribute xpath="/progression/perks/perk[@name='perkCharismaticNature']/effect_group/triggered_effect" name="range">100</setattribute>
+	
+	
+	<!-- Nothing to do for "Hammer & Forge", "Advanced Engineering", "Grease Monkey",
+	     "Yeah, Science!" (Cept maybe change the name to "Science, Bitch!"), "Master Chef", or "Physician" -->
+		 
+</expandedprogression>
